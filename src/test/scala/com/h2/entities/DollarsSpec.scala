@@ -1,6 +1,5 @@
-package com.h2.entities.assertions
+package com.h2.entities
 
-import com.h2.entities.Dollars
 import org.scalatest.flatspec.AnyFlatSpec
 
 class DollarsSpec extends AnyFlatSpec {
@@ -24,4 +23,9 @@ behavior of "A Dollar"
     assert (fortyFive < ninetyTwo)
   }
 
+  it should "throw on a bad integer" in {
+    assertThrows[ArithmeticException]{
+      Dollars(10/0)
+    }
+  }
 }
