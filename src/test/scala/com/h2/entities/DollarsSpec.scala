@@ -10,7 +10,7 @@ behavior of "A Dollar"
     assert("$102" === tenDollars.toString)
   }
 
-  it should "correctly identify that 10usd greater than 5usd" in {
+  it should "correctly identify that 10usd greater than 4usd" in {
     val tenDollars = Dollars(10)
     val fourDollars = Dollars(4)
 
@@ -33,7 +33,7 @@ behavior of "A Dollar"
 class OddDollarsSpec extends AnyFlatSpec {
   "A wallet" should "contain an odd amount of dollars" in {
     val wallet = Dollars(OddDollarsSpecHelper.getRandomAmountOfMoney)
-    assume(wallet.toInt % 2 == 0)
+    assume(wallet.toInt % 2 == 0, "Require odd number of dollars")
   }
 
 }
