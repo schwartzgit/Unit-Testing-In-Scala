@@ -1,7 +1,6 @@
 package com.h2.entities
 
-import java.io.IOException
-
+import javax.management.BadAttributeValueExpException
 import org.scalatest.flatspec.AnyFlatSpec
 
 class EmailSpec extends AnyFlatSpec {
@@ -36,5 +35,12 @@ class EmailAtsignSpec extends AnyFlatSpec {
         assertThrows[IllegalArgumentException] {
             val email = Email("here@and@there.com")
         }
+    }
+
+    it should "intercept IAE on no atsign" in {
+        val interceptedIllegalArgumentException = intercept[IllegalArgumentException] {
+            val badEmail = Email("nobodyATnowhere")
+        }
+        assert(interceptedIllegalArgumentException.isInstanceOf[IllegalArgumentException])
     }
 }
