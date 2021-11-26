@@ -6,4 +6,7 @@ behavior of "Hello World"
   it should "start with 'Hello'" in {
     assert("Hello World".startsWith("Hello"))
   }
+  it should "end with 'Hello'" in {
+    assert("Hello World".endsWith("World"))
+  }
 }
