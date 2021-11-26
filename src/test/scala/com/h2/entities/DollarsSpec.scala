@@ -29,3 +29,16 @@ behavior of "A Dollar"
     }
   }
 }
+
+class OddDollarsSpec extends AnyFlatSpec {
+  "A wallet" should "contain an odd amount of dollars" in {
+    val wallet = Dollars(OddDollarsSpecHelper.getRandomAmountOfMoney)
+    assume(wallet.toInt % 2 == 0)
+  }
+
+}
+
+object OddDollarsSpecHelper {
+  private val Random = new java.util.Random(System.currentTimeMillis())
+  def getRandomAmountOfMoney: Int = Random.nextInt(500)
+}

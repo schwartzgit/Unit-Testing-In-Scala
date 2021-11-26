@@ -1,6 +1,5 @@
 package com.h2.entities
 
-import javax.management.BadAttributeValueExpException
 import org.scalatest.flatspec.AnyFlatSpec
 
 class EmailSpec extends AnyFlatSpec {
@@ -43,4 +42,7 @@ class EmailAtsignSpec extends AnyFlatSpec {
         }
         assert(interceptedIllegalArgumentException.isInstanceOf[IllegalArgumentException])
     }
+
+//    ignore should "bill customer for number of characters in email message" in {}
+
 }
